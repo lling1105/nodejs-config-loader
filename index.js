@@ -5,9 +5,10 @@ var loader = {};
 var configs = null;
 var options = {
     remoteBaseUrl:"http://127.0.0.1", //required
+    configGroup:null, //optional
     API:"",
     body:{}, //optional
-    configName:null, //optional
+
 
 };
 
@@ -19,7 +20,7 @@ loader.getConfigValue =async function(configKey){
         method: "get",
         url: options.API,
         baseURL:options.remoteBaseUrl,
-        params: _.assign(options.body,{configName:options.configName}),
+        params: _.assign(options.body,{configGroup:options.configGroup}),
         responseType: 'json',
         responseEncoding: 'utf8',
         timeout: 10000,
